@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jamal Loves You</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #ff4d4d;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      z-index: 1;
+      position: relative;
+      text-shadow: 0 0 20px #ff4d4d;
+    }
+
+    .petal {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.9;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Jamal loves you very much 🌹</h1>
+
+  <script>
+    const imageUrls = [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Red_rose.png/600px-Red_rose.png',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Lilium_bulbiferum_%28flower%29.jpg/480px-Lilium_bulbiferum_%28flower%29.jpg'
+    ];
+
+    const numberOfPetals = 30;
+
+    for (let i = 0; i < numberOfPetals; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = (4 + Math.random() * 4) + 's';
+      petal.style.animationDelay = Math.random() * 5 + 's';
+      petal.style.backgroundImage = `url(${imageUrls[Math.floor(Math.random() * imageUrls.length)]})`;
+      document.body.appendChild(petal);
+    }
+  </script>
+</body>
+</html>
